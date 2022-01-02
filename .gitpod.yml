@@ -1,10 +1,9 @@
 # Commands to start on workspace startup
 tasks:
-  - init: docker-compose -f docker-compose.airbyte.yaml build
-    command: docker-compose -f docker-compose.airbyte.yaml up
+  - init: docker-compose build
+    command: docker-compose up
 # Ports to expose on workspace startup
 ports:
-  - port: 8000
+  - port: 8080
     onOpen: open-browser
-  - port: 7233
-    onOpen: ignore
+

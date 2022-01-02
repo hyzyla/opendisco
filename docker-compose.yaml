@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
 
-  opendisco_db:
+  db:
     image: postgres
     restart: always
     environment:
@@ -11,3 +11,16 @@ services:
       POSTGRES_DB: opendisco
     ports:
       - 5432:5432
+
+  web:
+    user: "1000:1000"
+    build:
+      context: .
+      dockerfile: docker/backend.dockerfile
+    command: python -m http.server --bind 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db

@@ -7,6 +7,10 @@ Run airbyte:
 ```shell
 docker-compose -f docker-compose.airbyte.yaml up
 ```
+Run app:
+```shell
+docker-compose up opendisco_db
+```
 
 ## TODO:
 - [ ] Add postgres as destination
